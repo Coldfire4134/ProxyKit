@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RunnableRecipes", "Runnable
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRSimpleChat", "src\SignalRSimpleChat\SignalRSimpleChat.csproj", "{42BFCF9F-53B9-4600-9183-12349DE9E3D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StressTest", "src\StressTest\StressTest.csproj", "{F9A492CE-9E38-4B4C-AFF4-D8DB5CA0DDA3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stress", "Stress", "{4C90ABFB-0FFC-4C3E-856B-D910068FD6AF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpstreamServer", "src\UpstreamServer\UpstreamServer.csproj", "{C27D3A2C-D7B3-42D2-88C6-14C14D6807EA}"
