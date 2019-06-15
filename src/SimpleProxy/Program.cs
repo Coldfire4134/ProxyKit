@@ -29,9 +29,17 @@ namespace SimpleProxy
 
             public void Configure(IApplicationBuilder app)
             {
-                app.RunProxy(context => context
+                /*app.RunProxy(context => context
                     .ForwardTo("http://10.0.75.1:5002")
-                    .Execute());
+                    .Send());*/
+
+                app.Map("/a", d => d.RunProxy(context => context
+                    .ForwardTo("http://10.0.75.1:5002/a")
+                    .Send()));
+
+                app.Map("/b", d => d.RunProxy(context => context
+                    .ForwardTo("http://10.0.75.1:5002/b/")
+                    .Send()));
             }
         }
     }

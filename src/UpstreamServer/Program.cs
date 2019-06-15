@@ -31,6 +31,8 @@ namespace UpstreamServer
                 {
                     context.Response.ContentType = "text/plain";
                     await context.Response.WriteAsync($"Hello, ProxyKit!\n");
+                    await context.Response.WriteAsync($"{context.Request.PathBase}\n");
+                    await context.Response.WriteAsync($"{context.Request.Path}\n");
                 });
             }
         }
