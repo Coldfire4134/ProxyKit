@@ -86,7 +86,7 @@ namespace ProxyKit
         {
             _builder.Configure(app => app.RunProxy(
                 context => context
-                    .ForwardTo($"http://localhost:{port}/foo/")
+                    .ForwardTo($"http://localhost:{port}/foo")
                     .AddXForwardedHeaders()
                     .Send()));
             var server = new TestServer(_builder);

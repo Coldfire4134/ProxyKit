@@ -44,7 +44,7 @@ namespace ProxyKit
             {
                 app.Map("/realserver", appInner =>
                     appInner.RunProxy(context => context
-                        .ForwardTo("http://localhost:" + port + "/")
+                        .ForwardTo("http://localhost:" + port)
                         .AddXForwardedHeaders()
                         .Send()));
 

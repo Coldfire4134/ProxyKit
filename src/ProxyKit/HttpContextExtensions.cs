@@ -18,12 +18,30 @@ namespace ProxyKit
         /// forwarding request context.</returns>
         public static ForwardContext ForwardTo(this HttpContext context, UpstreamHost upstreamHost)
         {
-            var uri = new Uri(UriHelper.BuildAbsolute(
+            var uriOrig = new Uri(UriHelper.BuildAbsolute(
                 upstreamHost.Scheme,
                 upstreamHost.Host,
                 upstreamHost.PathBase,
                 context.Request.Path,
                 context.Request.QueryString));
+
+            var uriBuilder = new UriBuilder
+            {
+                Scheme = upstreamHost.Scheme,
+                Host = upstreamHost.Host.Host
+            };
+            if (upstreamHost.Host.Port.HasValue)
+            {
+                uriBuilder.Port = upstreamHost.Host.Port.Value;
+            }
+
+            uriBuilder.Path = upstreamHost.PathBase.Value + context.Request.Path.Value;
+            if (context.Request.QueryString.HasValue)
+            {
+                uriBuilder.Query = context.Request.QueryString.Value;
+            }
+
+            var uri = uriBuilder.Uri;
 
             var request = context.Request.CreateProxyHttpRequest();
             request.Headers.Host = uri.Authority;
